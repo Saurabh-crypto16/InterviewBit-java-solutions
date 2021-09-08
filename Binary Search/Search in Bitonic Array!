@@ -1,0 +1,46 @@
+public class Solution {
+    public int solve(ArrayList<Integer> A, int B) {
+        int j=0, n=A.size();
+        for(int i=0;i<n-1;i++){
+            if(A.get(i)>A.get(i+1)){
+                j=i;
+                break;
+            }
+        }
+
+        int ans1=binarySearchAsc(A,0,j,B), ans2=binarySearchDsc(A,j+1,n-1,B);
+        
+        return ans1==-1?ans2 : ans1;
+    }
+     private int binarySearchAsc(ArrayList<Integer> A, int start, int end, int key) {
+    while (start <= end) {
+      int mid = (start + end) / 2;
+      if (A.get(mid) == key) {
+        return mid;
+      }
+      else if (A.get(mid) > key) {
+        end = mid - 1;
+      }
+      else {
+        start = mid + 1;
+      }
+    }
+    return -1;
+  }
+
+  private int binarySearchDsc(ArrayList<Integer> A,  int start, int end, int key) {
+    while (start <= end) {
+      int mid = (start + end) / 2;
+      if (A.get(mid) == key) {
+        return mid;
+      }
+      else if (A.get(mid) < key) {
+        end = mid - 1;
+      }
+      else {
+        start = mid + 1;
+      }
+    }
+    return -1;
+  }
+}
