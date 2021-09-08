@@ -1,0 +1,31 @@
+//sort of binary search
+
+public class Solution {
+    ArrayList<Integer> ans;
+    public int solve(ArrayList<Integer> A) {
+        ans=solution(A,0,A.size()-1);
+        return ans.get(0)+ans.get(1);
+    }
+    public ArrayList<Integer> solution(ArrayList<Integer> A, int l, int r){
+        ArrayList<Integer> v=new ArrayList<>();
+        if(l==r){
+            v.add(A.get(l));
+            v.add(A.get(l));
+            return v;
+        }
+
+        if(l+1==r){
+            v.add(Math.min(A.get(l), A.get(r)));
+            v.add(Math.max(A.get(l), A.get(r)));
+            return v;
+        }
+
+        int mid=l+(r-l)/2;
+        ArrayList<Integer> left=solution(A,l,mid-1);
+        ArrayList<Integer> right=solution(A,mid,r);
+        v.add(Math.min(left.get(0), right.get(0)));
+        v.add(Math.max(left.get(1), right.get(1)));
+
+        return v;
+    }
+}
