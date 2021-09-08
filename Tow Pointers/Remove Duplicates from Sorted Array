@@ -1,0 +1,17 @@
+/*from any index i run a loop to find the next non similar element from that index and swap it with (i+1)th index till loop reaches end of string.*/
+
+public class Solution {
+	public int removeDuplicates(ArrayList<Integer> a) {
+        int i = 0;
+        int j = 0;
+        int n = a.size();
+        while (j < n) {
+            int num = a.get(j);
+            while (j < n && a.get(j) == num) {
+                j++;
+            }
+            a.set(i++, num);
+        }
+        return i;
+	}
+}
