@@ -1,0 +1,31 @@
+public class Solution {
+    public ArrayList<Integer> solve(ArrayList<Integer> A) {
+        int neg=0, pos=0;
+        ArrayList<Integer> ans=new ArrayList<>();
+        for(int i=0;i<A.size();i++){
+            if(A.get(i)>0){
+                pos=i;
+                neg=i-1;
+                break;
+            }
+        }
+        while(neg>=0 && pos<A.size()){
+            if(A.get(neg)*A.get(neg)<A.get(pos)*A.get(pos)){
+                ans.add(A.get(neg)*A.get(neg));
+                neg--;
+            }else{
+                ans.add(A.get(pos)*A.get(pos));
+                pos++;
+            }
+        }
+        while(neg>=0){
+            ans.add(A.get(neg)*A.get(neg));
+            neg--;
+        }
+        while(pos<A.size()){
+            ans.add(A.get(pos)*A.get(pos));
+            pos++;
+        }
+        return ans;
+    }
+}
