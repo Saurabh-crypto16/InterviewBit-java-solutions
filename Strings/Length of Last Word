@@ -1,0 +1,21 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public int lengthOfLastWord(final String A) {
+        char ch[]=A.toCharArray();
+        int ans=0, i=ch.length-1;
+        
+        //finding first alphabetic character from end
+        while(i>=0 && !Character.isAlphabetic(ch[i]))   i--;
+        
+        //find number of consequtive alphabets from frist alphabet from end
+        while(i>=0){
+            if(Character.isAlphabetic(ch[i]))   {
+                i--;
+                ans++;
+            }else{
+                break;
+            }
+        }
+        return ans;
+    }
+}
