@@ -1,0 +1,26 @@
+//Find max value and apply binary search on 0 to max 
+
+public class Solution {
+    public int solve(ArrayList<Integer> A, int B) {
+        Collections.sort(A);
+        long min=0, max=A.get(A.size()-1), ans=0;
+        
+        //binary search on 0 to max range
+        while(min<=max){
+            long mid=min+(max-min)/2, amt=0;
+            for(int i: A){
+                if(i>mid){
+                    amt+=(i-mid);
+                }
+            }
+            if(amt>=(long)B){
+                min=mid+1;
+                ans=Math.max(ans,mid);
+            }else{
+                max=mid-1;
+            }
+        }
+        
+        return (int)ans;
+    }
+}
