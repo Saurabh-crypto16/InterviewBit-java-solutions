@@ -1,0 +1,36 @@
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public ArrayList<Integer> searchRange(final List<Integer> A, int B) {
+        int left=0, right=A.size()-1;
+        ArrayList<Integer> ans=new ArrayList<>();
+        
+        //finding the number of elements less than target hence left will contain the index of first occurance of target
+        
+        while(left<right){
+            int mid=(left+right)/2;
+            if(A.get(mid)<B)    left=mid+1;
+            else right=mid;
+        }
+        
+        //if target does not exist in the array
+        if(A.get(left)!=B){
+            ans.add(-1);
+            ans.add(-1);
+            return ans;
+        }
+        
+        //else target exists and left contains the 1st index of target 
+        ans.add(left);
+        right=A.size()-1;
+        
+        //finding number of elements less than or equal to target 
+        while(left<right){
+            int mid=(left+right)/2+1;
+            if(A.get(mid)>B)    right=mid-1;
+            else left=mid;
+        }
+
+        ans.add(right);
+        return ans;
+    }
+}
