@@ -1,3 +1,5 @@
+```java
+
 public class Solution {
     public int solve(ArrayList<Integer> A, int B) {
         int left=0,right=A.size()-1, ans=0;
@@ -13,3 +15,4 @@ public class Solution {
         return ans;
     }
 }
+```
