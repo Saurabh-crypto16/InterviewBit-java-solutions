@@ -1,3 +1,4 @@
+```java
 /*
 Apply binary search on the range(min pages book , sum of pages of all books )
 and for each mid value check if we can allocate books with mid as limiting number of pages 
@@ -51,3 +52,4 @@ public class Solution {
         return true;
     }
 }
+   ```
