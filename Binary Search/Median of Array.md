@@ -1,3 +1,5 @@
+```java
+
 /*
 
 Navie solution- Sort both the arrays using merge sort then find the median
@@ -38,3 +40,4 @@ public class Solution {
 		return 0.0;
 	}
 }
+```
