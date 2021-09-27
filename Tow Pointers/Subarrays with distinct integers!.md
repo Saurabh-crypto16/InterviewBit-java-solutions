@@ -1,4 +1,12 @@
 ```java
+
+/*
+To directly count the subarrays with exactly B different integers is hard but to find the count of subarrays with at most B different integers is easy.
+So the idea is to find the count of subarrays with at most B different integers, let it be C(B), 
+and the count of subarrays with at most (B - 1) different integers, 
+let it be C(B - 1) and finally take their difference, C(B) – C(B – 1) which is the required answer.
+*/
+
 public class Solution {
     public int solve(ArrayList<Integer> A, int B) {
         return lessThanEqualToK(A,B)-lessThanEqualToK(A,B-1);
