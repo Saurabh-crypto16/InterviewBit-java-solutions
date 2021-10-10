@@ -1,5 +1,5 @@
 ```java
-//Using STACK - O(N) space
+//Using STACK - O(N) space and O(N) time
 /**
  * Definition for an interval.
  * public class Interval {
@@ -33,6 +33,7 @@ public class Solution {
     }
 }
 
+//const space and O(N) time
 public class Solution {
     public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
         //ascending sort based on start
@@ -63,6 +64,25 @@ public class Solution {
         res.add(new Interval(start,end));
         
         return res;
+    }
+}
+
+//Constant space and O(N) time
+public class Solution {
+    public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
+        Collections.sort(intervals,(p1,p2) -> Integer.compare(p1.start,p2.start));
+
+        ArrayList<Interval> ans=new ArrayList<>();
+        ans.add(intervals.get(0));
+        for(int i=1;i<intervals.size();i++){
+            if(ans.get(ans.size()-1).end>=intervals.get(i).start){
+                ans.get(ans.size()-1).end=Math.max(ans.get(ans.size()-1).end,intervals.get(i).end);
+            }else{
+                ans.add(intervals.get(i));
+            }
+        }
+
+        return ans;
     }
 }
 ```
