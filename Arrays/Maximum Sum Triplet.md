@@ -1,4 +1,5 @@
 ```java
+# Java Solution
 public class Solution {
     public int solve(ArrayList<Integer> A) {
         // Initialize suffix-array
