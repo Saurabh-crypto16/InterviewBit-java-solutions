@@ -1,6 +1,29 @@
 ```java
 public class Solution {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
+    public int strStr(final String A, final String B) {
+        int i=0,j=0;
+        while(i<A.length() && j<B.length()){
+            if(A.charAt(i)==B.charAt(j)){
+                i++;
+                j++;
+            }else{
+                //when char mismatchs start from the next character 
+                //after match starting character in A and start B from 0
+                i=i-j+1;     
+                j=0;
+            }
+        }
+        
+        if(j==B.length())   return i-j;
+        return -1;
+    }
+}
+
+
+//USING KMP ALGO
+public class Solution {
+    // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int strStr(final String txt, final String pat) {
         if (pat.length() == 0) {
             return 0;  // return 0 because no pattern to search
