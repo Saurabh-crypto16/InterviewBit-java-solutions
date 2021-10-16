@@ -21,7 +21,7 @@ public class Solution {
 }
 
 
-//USING KMP ALGO
+//2nd solution USING KMP ALGO
 public class Solution {
     // DO NOT MODIFY THE LIST. IT IS READ ONLY
     public int strStr(final String txt, final String pat) {
