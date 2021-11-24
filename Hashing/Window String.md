@@ -22,6 +22,7 @@ public class Solution {
                 }
             }
 
+            //moving start till we get a count>0(i.e a char which is in t string)
             while (start < A.length() && count == 0) {
                 if (minLen > idx - start + 1) {
                     startIdx = start;
