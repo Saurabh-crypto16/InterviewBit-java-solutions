@@ -19,7 +19,7 @@ public class Solution {
         TreeNode res = new TreeNode(-1);
         while(!q.isEmpty()) {
             TreeNode node = q.poll();
-            if(node.data == start) res = node;
+            if(node.val == start) res = node;
             if(node.left != null) {
                 mpp.put(node.left, node);
                 q.offer(node.left);
@@ -67,9 +67,10 @@ public class Solution {
     }
     public int solve(TreeNode A, int B) {
         HashMap<TreeNode,TreeNode> mpp = new HashMap<>();
-        TreeNode target = bfsToMapParents(root, mpp, B);
+        TreeNode target = bfsToMapParents(A, mpp, B);
         int maxi = findMaxDistance(mpp, target);
         return maxi;
     }
 }
+
 ```
