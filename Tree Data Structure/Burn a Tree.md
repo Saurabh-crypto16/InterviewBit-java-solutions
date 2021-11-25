@@ -67,7 +67,7 @@ public class Solution {
     }
     public int solve(TreeNode A, int B) {
         HashMap<TreeNode,TreeNode> mpp = new HashMap<>();
-        TreeNode target = bfsToMapParents(root, mpp, start);
+        TreeNode target = bfsToMapParents(root, mpp, B);
         int maxi = findMaxDistance(mpp, target);
         return maxi;
     }
