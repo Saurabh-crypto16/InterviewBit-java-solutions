@@ -13,8 +13,7 @@
  * }
  */
 public class Solution {
-    private static TreeNode bfsToMapParents(TreeNode root, HashMap<TreeNode>,TreeNode> mpp,
-            int start) {
+    private static TreeNode bfsToMapParents(TreeNode root, HashMap<TreeNode,TreeNode> mpp, int start) {
         Queue<TreeNode> q = new LinkedList<>();
         q.offer(root);
         TreeNode res = new TreeNode(-1);
