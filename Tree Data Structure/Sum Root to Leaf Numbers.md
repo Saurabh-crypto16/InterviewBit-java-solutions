@@ -12,6 +12,32 @@
  *     }
  * }
  */
+ 
+ //Solution 1 
+public class Solution {
+    int sum;
+    public int sumNumbers(TreeNode A) {
+        if(A==null)     return 0;
+        sum=0;
+        findSum(A,0);
+        return sum%1003;
+    }
+    public void findSum(TreeNode node,int val){
+        int curr=(val*10)%1003+node.val;
+
+        if(node.left==null && node.right==null){
+            sum+=(curr%1003);
+            sum%=1003;
+            return;
+        }
+
+        if(node.left!=null)     findSum(node.left,curr);
+        if(node.right!=null)     findSum(node.right,curr);
+    }
+}
+
+ 
+ //Solution 2 - using extra space
 public class Solution {
     public int sumNumbers(TreeNode root) {
         if(root==null)  return 0;
