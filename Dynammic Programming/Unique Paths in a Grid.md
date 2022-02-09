@@ -1,4 +1,14 @@
 ```java
+/*
+No of unique paths if there is no obstacle is (m+n-2)C(m-1) or (m+n-2)C(n-1)
+
+int N=m+n-2,R=m-1;
+double res=1;
+for(int i=1;i<=R;i++){
+    res*=((N-R+i)/i);
+}
+return (int)res;
+*/
 public class Solution {
     public int uniquePathsWithObstacles(ArrayList<ArrayList<Integer>> A) {
         int m=A.size(),n=A.get(0).size();
